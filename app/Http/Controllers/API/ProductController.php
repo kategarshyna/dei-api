@@ -5,14 +5,17 @@ namespace App\Http\Controllers\API;
 use App\Models\CsCartApi\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+
     public function index(Client $client)
     {
+        $user = Auth::user();
         $products = $client->productsEndpoint->index();
 
-        return $products;
+        return ['success' => [$products, $user]];
     }
 
     public function store(Request $request)
