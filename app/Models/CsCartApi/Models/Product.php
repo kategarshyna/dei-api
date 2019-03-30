@@ -14,7 +14,8 @@ class Product extends Model
     {
         return [
             'id' => $this->product_id,
-            'title1' => $this->product,
+            'title' => $this->product,
+            'price' => $this->price
         ];
     }
 }

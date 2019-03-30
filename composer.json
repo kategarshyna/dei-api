@@ -14,7 +14,8 @@
         "laravel/framework": "5.8.*",
         "laravel/passport": "^7.2",
         "laravel/tinker": "^1.0",
-        "torann/api-client": "~0.2.2"
+        "mtrajano/laravel-swagger": "dev-master#1bc333b",
+        "torann/api-client": "~0.2.3"
     },
     "repositories": [
       {
@@ -59,18 +60,13 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
-        ],
-        "post-root-package-install": [
-            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-        ],
-        "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan laravel-swagger:generate --filter='/api' > public/swagger.json"
         ],
         "post-update-cmd": [
           "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-          "php artisan ide-helper:generate",
-          "php artisan ide-helper:meta"
+          "@php artisan ide-helper:generate",
+          "@php artisan ide-helper:meta"
         ]
     }
 }

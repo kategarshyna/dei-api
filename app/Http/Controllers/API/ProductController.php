@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Requests\ProductsRequest;
 use App\Models\CsCartApi\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,12 +11,11 @@ use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
 
-    public function index(Client $client)
+    public function index(Client $client, ProductsRequest $request)
     {
-        $user = Auth::user();
-        $products = $client->productsEndpoint->index();
+        $products = $client->productsEndpoint->index($request->all());
 
-        return ['success' => [$products, $user]];
+        return $products;
     }
 
     public function store(Request $request)
@@ -23,9 +23,11 @@ class ProductController extends Controller
         //
     }
 
-    public function show($id)
+    public function show(Client $client, $id)
     {
-        //
+        $product = $client->productsEndpoint->show($id);
+
+        return $product;
     }
 
     public function update(Request $request, $id)

@@ -1,0 +1,290 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Laravel",
+        "description": "",
+        "version": "1.0.0"
+    },
+    "host": "dei-api.amtago.club",
+    "basePath": "\/",
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application\/json"
+    ],
+    "produces": [
+        "application\/json"
+    ],
+    "paths": {
+        "\/api\/customers\/login": {
+            "post": {
+                "description": "POST \/api\/customers\/login",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "email",
+                                "password"
+                            ],
+                            "properties": {
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "\/api\/customers\/register": {
+            "post": {
+                "description": "POST \/api\/customers\/register",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "",
+                        "schema": {
+                            "type": "object",
+                            "required": [
+                                "name",
+                                "email",
+                                "password",
+                                "c_password"
+                            ],
+                            "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
+                                "email": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                },
+                                "c_password": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "\/api\/customers\/user-detail": {
+            "get": {
+                "description": "GET \/api\/customers\/user-detail",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "\/api\/products": {
+            "get": {
+                "description": "GET \/api\/products",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "pname",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "pshort",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "pfull",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "pkeywords",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "pcode",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "cid",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "amount_from",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "amount_to",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "price_from",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "price_to",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "subcats",
+                        "type": "string",
+                        "required": false,
+                        "description": "",
+                        "enum": [
+                            "Y",
+                            "N"
+                        ]
+                    },
+                    {
+                        "in": "query",
+                        "name": "order_ids",
+                        "type": "string",
+                        "required": false,
+                        "description": "",
+                        "enum": [
+                            "1",
+                            "13",
+                            "24"
+                        ]
+                    },
+                    {
+                        "in": "query",
+                        "name": "free_shipping",
+                        "type": "string",
+                        "required": false,
+                        "description": "",
+                        "enum": [
+                            "Y",
+                            "N"
+                        ]
+                    },
+                    {
+                        "in": "query",
+                        "name": "status",
+                        "type": "string",
+                        "required": false,
+                        "description": "",
+                        "enum": [
+                            "A",
+                            "D",
+                            "H"
+                        ]
+                    },
+                    {
+                        "in": "query",
+                        "name": "sort_order",
+                        "type": "string",
+                        "required": false,
+                        "description": "",
+                        "enum": [
+                            "asc",
+                            "desc"
+                        ]
+                    },
+                    {
+                        "in": "query",
+                        "name": "sort_by",
+                        "type": "string",
+                        "required": false,
+                        "description": "",
+                        "enum": [
+                            "status",
+                            "list_price",
+                            "product",
+                            "price",
+                            "code",
+                            "amount"
+                        ]
+                    },
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "items_per_page",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/api\/products\/{id}": {
+            "get": {
+                "description": "GET \/api\/products\/{id}",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        }
+    }
+}

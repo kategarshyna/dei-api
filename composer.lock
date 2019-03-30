@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a3d076e1bd1c4237cc4dbec8602113b",
+    "content-hash": "73f036eee80f7a1b2457a20b44c907dd",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -1863,6 +1863,56 @@
                 "psr-3"
             ],
             "time": "2018-11-05T09:00:11+00:00"
+        },
+        {
+            "name": "mtrajano/laravel-swagger",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mtrajano/laravel-swagger.git",
+                "reference": "1bc333b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mtrajano/laravel-swagger/zipball/1bc333b",
+                "reference": "1bc333b",
+                "shasum": ""
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "6.*"
+            },
+            "suggest": {
+                "ext-yaml": "Required to use the YAML output option"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mtrajano\\LaravelSwagger\\SwaggerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Mtrajano\\LaravelSwagger\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mauricio Trajano",
+                    "email": "mauriciot1993@gmail.com"
+                }
+            ],
+            "description": "Auto generates the swagger documentation for a laravel project",
+            "time": "2018-04-29T21:50:41+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -4057,11 +4107,11 @@
         },
         {
             "name": "torann/api-client",
-            "version": "0.2.2",
+            "version": "0.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kategarshyna/api-client.git",
-                "reference": "0ef31714b86eb603d7a904d0e3093cf4d9961e70"
+                "reference": "6f24e3ead11f9a173d8890d808cd83794df87909"
             },
             "require": {
                 "illuminate/pagination": ">5.0 <6.0",
@@ -4101,7 +4151,7 @@
                 "curl",
                 "laravel"
             ],
-            "time": "2019-03-29T21:34:57+00:00"
+            "time": "2019-03-30T19:15:32+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -5989,7 +6039,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "mtrajano/laravel-swagger": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

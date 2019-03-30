@@ -4,6 +4,8 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 class Handler extends ExceptionHandler
@@ -50,13 +52,23 @@ class Handler extends ExceptionHandler
         if ($request->expectsJson() || $exception instanceof MethodNotAllowedHttpException) {
             $json = [
                 'success' => false,
-                'error' => [
-                    'code' => $exception->getCode(),
-                    'message' => $exception->getMessage(),
-                ],
             ];
 
-            return response()->json($json, 400);
+            if ($exception instanceof ValidationException) {
+                $json['validation'] = $exception->validator->errors();
+            } else {
+                $json['error'] = [
+                    'code' => $exception->getCode(),
+                    'message' => $exception->getMessage(),
+                ];
+            }
+
+            return response()->json(
+                $json,
+                $exception instanceof HttpExceptionInterface
+                    ? $exception->getStatusCode()
+                    : 400
+            );
         }
 
         return parent::render($request, $exception);

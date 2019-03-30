@@ -28,4 +28,11 @@ class ProductsEndpoint extends Endpoint
 
         return $response->getResponseCode() === 200;
     }
+
+    public function show($id)
+    {
+        $response = $this->request->get('products/' . $id);
+
+        return new Product($response->getRaw());
+    }
 }
