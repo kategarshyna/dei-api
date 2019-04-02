@@ -267,9 +267,131 @@
                 ]
             }
         },
-        "\/api\/products\/{id}": {
+        "\/api\/products\/{id}\/detail": {
             "get": {
-                "description": "GET \/api\/products\/{id}",
+                "description": "GET \/api\/products\/{id}\/detail",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/api\/products\/categories": {
+            "get": {
+                "description": "GET \/api\/products\/categories",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "items_per_page",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/api\/product\/category\/{id}": {
+            "get": {
+                "description": "GET \/api\/product\/category\/{id}",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "type": "string",
+                        "required": true,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/api\/stores": {
+            "get": {
+                "description": "GET \/api\/stores",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "items_per_page",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "sort_by",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "sort_order",
+                        "type": "string",
+                        "required": false,
+                        "description": "",
+                        "enum": [
+                            "asc",
+                            "desc"
+                        ]
+                    },
+                    {
+                        "in": "query",
+                        "name": "timestamp",
+                        "type": "integer",
+                        "required": false,
+                        "description": ""
+                    },
+                    {
+                        "in": "query",
+                        "name": "company",
+                        "type": "string",
+                        "required": false,
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/api\/stores\/{id}\/detail": {
+            "get": {
+                "description": "GET \/api\/stores\/{id}\/detail",
                 "responses": {
                     "200": {
                         "description": "OK"

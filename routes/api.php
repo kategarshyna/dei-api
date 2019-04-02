@@ -22,5 +22,9 @@ Route::post('customers/register', 'UserController@register');
 Route::middleware(['auth:api'])->group(function(){
     Route::get('customers/user-detail', 'UserController@details');
     Route::get('products', 'ProductController@index');
-    Route::get('products/{id}', 'ProductController@show');
+    Route::get('products/{id}/detail', 'ProductController@show');
+    Route::get('products/categories', 'CategoryController@index');
+    Route::get('/product/category/{id}', 'CategoryController@show');
+    Route::get('/stores', 'StoreController@index');
+    Route::get('/stores/{id}/detail', 'StoreController@show');
 });
