@@ -11,9 +11,14 @@ class CsCartApiServiceProvider extends ServiceProvider
     {
         $this->app->bind(Client::class, function () {
             $client = new Client([
-                'domain' => 'https://dei.appreneurs.co/api/',
+                'domain' => config('services.cs_cart.base_api_url'),
             ]);
-            $client->request->setHeader('Authorization', 'Basic ' . base64_encode("kategarshyna@gmail.com:4UHO1x0Le8zTm00B4b6yr3f27Hr3LFa3"));
+            $client->request->setHeader(
+                'Authorization',
+                'Basic ' . base64_encode(
+                    config('services.cs_cart.username') . ':' . config('services.cs_cart.pass')
+                )
+            );
 
             return $client;
         });

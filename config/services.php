@@ -44,4 +44,10 @@ return [
         ],
     ],
 
+    'cs_cart' => [
+        'base_api_url' => env('CS_CART_API_BASE_URL'),
+        'username' => env('CS_CART_API_USERNAME'),
+        'pass' => env('CS_CART_API_PASS'),
+    ],
+
 ];

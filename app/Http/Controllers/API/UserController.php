@@ -27,7 +27,7 @@ class UserController extends Controller
         $user = Auth::user();
 
         return [
-            'token' => $user->createToken('MyApp')->accessToken,
+            'token' => $user->createToken(config('app.name'))->accessToken,
             'user'  => $user
         ];
     }
@@ -40,7 +40,7 @@ class UserController extends Controller
         $user = User::create($input);
 
         return [
-            'token' => $user->createToken('MyApp')->accessToken,
+            'token' => $user->createToken(config('app.name'))->accessToken,
             'user'  => $user
         ];
     }

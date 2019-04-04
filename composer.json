@@ -61,7 +61,6 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
-            "@php artisan laravel-swagger:generate --filter='/api' > public/swagger.json"
         ],
         "post-update-cmd": [
           "Illuminate\\Foundation\\ComposerScripts::postUpdate",

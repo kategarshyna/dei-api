@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('api-docs', 'DocsController@index')->name('api.docs.index');
+Route::get('api-docs/json', 'DocsController@json')->name('api.docs.json');

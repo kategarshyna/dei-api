@@ -16,9 +16,9 @@ use Illuminate\Http\Request;
 //    Route::apiResource('products', 'ProductController');
 //});
 
-
-Route::post('customers/login', 'UserController@login');
+Route::post('customers/login', 'UserController@login')->name('api.customers.login');
 Route::post('customers/register', 'UserController@register');
+
 Route::middleware(['auth:api'])->group(function(){
     Route::get('/launch', 'LaunchController@index');
     Route::get('/customer/detail', 'UserController@show');
