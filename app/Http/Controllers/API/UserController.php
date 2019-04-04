@@ -5,7 +5,11 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdatePasswordRequest;
+use App\Http\Requests\UpdateUserRequest;
+use App\Models\CsCartApi\Client;
 use App\User;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
@@ -22,7 +26,10 @@ class UserController extends Controller
         /** @var User $user */
         $user = Auth::user();
 
-        return ['token' => $user->createToken('MyApp')->accessToken];
+        return [
+            'token' => $user->createToken('MyApp')->accessToken,
+            'user'  => $user
+        ];
     }
 
     public function register(RegisterRequest $request)
@@ -38,10 +45,25 @@ class UserController extends Controller
         ];
     }
 
-    public function details()
+    public function show(Client $client)
     {
+        /** @var User $user */
         $user = Auth::user();
 
-        return ['user' => $user];
+        $user = $client->usersEndpoint->show($user->id);
+
+        return $user;
+    }
+
+
+    public function update(Client $client, UpdateUserRequest $request)
+    {
+        /** @var User $user */
+        $user = Auth::user();
+        $request->password = md5($request->password);
+
+        $user = $client->usersEndpoint->update($user->id, $request->all());
+
+        return $user;
     }
 }

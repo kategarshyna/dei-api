@@ -27,6 +27,10 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property  string $code Product code
  * @property  string $amount In stock amount
  *
+ * Sorting param    Description
+ * @property  string $sort_by Determines the parameter by which the products are sorted in the response.
+ * @property  string $sort_order Determines the sorting products:asc—ascending desc—descending
+ *
  * Pagination param    Description
  * @property  integer $page Shows products on a page with the defined number
  * @property  integer $items_per_page Shows N products, where N - is a number defined in the parameter

@@ -18,6 +18,13 @@ class ProductController extends Controller
         return $products;
     }
 
+    public function productsByStore(Client $client, $id)
+    {
+        $products = $client->productsEndpoint->productsByStore($id);
+
+        return $products;
+    }
+
     public function store(Request $request)
     {
         //
