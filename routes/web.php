@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 
-Route::get('api-docs', 'DocsController@index')->name('api.docs.index');
-Route::get('api-docs/json', 'DocsController@json')->name('api.docs.json');
+Route::get('docs', 'DocsController@index')->name('docs.index');
+Route::get('docs/json', 'DocsController@json')->name('docs.json');

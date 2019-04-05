@@ -7,4 +7,4 @@ PHP version: 7.3
 - run "php artisan migrate"
 - run "php artisan passport:install"
 - copy file .env.example to .env and set your credentials
-- api documentation url => /api-docs
+- api documentation url => /docs

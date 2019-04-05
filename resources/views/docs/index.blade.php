@@ -64,7 +64,7 @@
         }
     }
     const ui = SwaggerUIBundle({
-        url: "{{ route('api.docs.json') }}",
+        url: "{{ route('docs.json') }}",
         dom_id: "#docs",
         presets: [
             SwaggerUIBundle.presets.apis,
