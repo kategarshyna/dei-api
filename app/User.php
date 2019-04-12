@@ -3,13 +3,17 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 
 /**
- * @property int $id
- * @property int $password
+ * @property integer $id
+ * @property integer $user_id
+ * @property string $email
+ * @property string $remember_token
+ * @property integer $created_at
+ * @property integer $updated_at
+ * @property boolean $auth
  */
 class User extends Authenticatable
 {
@@ -21,7 +25,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        "id",
+        "user_id",
+        "email"
     ];
 
     /**
@@ -30,15 +36,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
+        'remember_token',
     ];
 }

@@ -25,7 +25,7 @@ class OrderController extends Controller
     {
         /** @var User $user */
         $user = Auth::user();
-        $orders = $client->ordersEndpoint->ordersByUserId($user->id);
+        $orders = $client->ordersEndpoint->ordersByUserId($user->user_id);
 
         return $orders;
     }
