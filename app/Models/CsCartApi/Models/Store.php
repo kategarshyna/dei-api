@@ -10,11 +10,11 @@ use BaseApiClient\Models\Model;
  */
 class Store extends Model
 {
-    public function toArray()
-    {
+//    public function toArray()
+//    {
 //        return [
 //            'id' => $this->store_id,
 //            'title' => $this->store,
 //        ];
-    }
+//    }
 }

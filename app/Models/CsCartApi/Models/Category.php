@@ -10,11 +10,11 @@ use BaseApiClient\Models\Model;
  */
 class Category extends Model
 {
-    public function toArray()
-    {
-        return [
-            'id' => $this->category_id,
-            'title' => $this->category,
-        ];
-    }
+//    public function toArray()
+//    {
+//        return [
+//            'id' => $this->category_id,
+//            'title' => $this->category,
+//        ];
+//    }
 }

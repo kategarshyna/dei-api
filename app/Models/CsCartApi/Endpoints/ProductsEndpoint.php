@@ -17,7 +17,7 @@ class ProductsEndpoint extends Endpoint
 
     public function productsByStore($id)
     {
-        $response = $this->request->get(sprintf('/store/%s/products', $id));
+        $response = $this->request->get(sprintf('/stores/%s/products', $id));
 
         return new ProductCollection($response->products, Product::class);
     }

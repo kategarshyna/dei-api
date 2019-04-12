@@ -10,12 +10,12 @@ use BaseApiClient\Models\Model;
  */
 class Product extends Model
 {
-    public function toArray()
-    {
-        return [
-            'id' => $this->product_id,
-            'title' => $this->product,
-            'price' => $this->price
-        ];
-    }
+//    public function toArray()
+//    {
+//        return [
+//            'id' => $this->product_id,
+//            'title' => $this->product,
+//            'price' => $this->price
+//        ];
+//    }
 }

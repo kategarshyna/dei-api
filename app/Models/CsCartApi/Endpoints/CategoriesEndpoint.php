@@ -4,19 +4,17 @@ namespace App\Models\CsCartApi\Endpoints;
 
 use App\Models\CsCartApi\Collections\CategoryCollection;
 use App\Models\CsCartApi\Collections\ProductCollection;
-use App\Models\CsCartApi\Collections\StoreCollection;
 use App\Models\CsCartApi\Models\Category;
 use App\Models\CsCartApi\Models\Product;
-use App\Models\CsCartApi\Models\Store;
 use BaseApiClient\Endpoint;
 
-class StoreEndpoint extends Endpoint
+class CategoriesEndpoint extends Endpoint
 {
     public function index(array $params = [])
     {
-        $response = $this->request->get('stores', $params);
+        $response = $this->request->get('categories', $params);
 
-        return new StoreCollection($response->stores, Store::class);
+        return new CategoryCollection($response->categories, Category::class);
     }
 
     public function create(array $params)
@@ -35,8 +33,8 @@ class StoreEndpoint extends Endpoint
 
     public function show($id)
     {
-        $response = $this->request->get('stores/' . $id);
+        $response = $this->request->get(sprintf('categories/%s', $id));
 
-        return new Store($response->getRaw());
+        return new Category($response->getRaw());
     }
 }
